@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Job search</title>
+    <link rel="stylesheet" href="{% static 'jobs/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'jobs/css/skeleton.css' %}">
+<!--    <link rel="stylesheet" href="{% static 'jobs/css/style.css' %}">-->
+</head>
+<body>
+<h1>my job search</h1>
+<main class="container">
+    {% for position in positions %}
+    <div class="row">
+        <div class="two columns">{{ position.start_date }}</div>
+        <div class="two columns">{{ position.company_name }}</div>
+        <div class="two columns">{% if position.link %}<a href="{{ position.link }}">{{ position.role }}</a>{% else %}{{ position.role }}{% endif %}</div>
+        {% for note in position.notes.all %}
+        <div class="two columns">{{ note.happened_at }}</div>
+        <div class="four columns">{{ note.description }}</div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+</main>
+</body>
+</html>
