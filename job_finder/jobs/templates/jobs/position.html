@@ -5,6 +5,7 @@
 <main>
 <div class="row">
     <a class="button button-primary" href="{% url 'add-note' position.id %}">add note</a>
+    <a class="button button-primary" href="{% url 'position-update' position.id %}">update position</a>
 </div>
 <div class="row">
     {% for note in position.notes.all %}
