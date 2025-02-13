@@ -1,0 +1,21 @@
+{% extends 'common/base.html' %}
+{% block title %}<title>add note</title>{% endblock %}
+{% block content %}
+    <h1>Add note</h1>
+    <form method="post">
+    {% csrf_token %}
+        <input type="hidden" name="{{ form.position.name }}" value="{{ form.position.value }}">
+    <div class="row">
+        <label for="{{ form.happened_at.name }}" class="two columns">{{ form.happened_at.label_tag }}</label>
+        <input id="{{ form.happened_at.name }}" type="date" name="{{ form.happened_at.name }}" value="{{ form.happened_at.value }}" class="four columns" />
+    </div>
+    <div class="row">
+        <label for="{{ form.description.name }}" class="two columns">{{ form.description.label_tag }}</label>
+        <input id="{{ form.description.name }}" type="text" name="{{ form.description.name }}" value="{% if form.description.value %}{{ form.description.value }}{% endif %}" class="four columns" />
+    </div>
+    <div class="row">
+        <button class="button-primary">Submit</button>
+        <button class="button">Reset</button>
+    </div>
+    </form>
+{% endblock %}

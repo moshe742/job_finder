@@ -1,0 +1,36 @@
+{% extends 'common/base.html' %}
+{% block title %}<title>add position</title>{% endblock %}
+{% block content %}
+    <h1>Add position</h1>
+    <form method="post">
+    {% csrf_token %}
+    <div class="row">
+        <label for="{{ form.company_name.name }}" class="two columns">{{ form.company_name.label_tag }}</label>
+        <input id="{{ form.company_name.name }}" type="text" name="{{ form.company_name.name }}" value="{% if form.company_name.value %}{{ form.company_name.value }}{% endif %}" class="four columns" />
+    </div>
+    <div class="row">
+        <label for="{{ form.role.name }}" class="two columns">{{ form.role.label_tag }}</label>
+        <input id="{{ form.role.name }}" type="text" name="{{ form.role.name }}" value="{% if form.role.value %}{{ form.role.value }}{% endif %}" class="four columns" />
+    </div>
+    <div class="row">
+        <label for="{{ form.link.name }}" class="two columns">{{ form.link.label_tag }}</label>
+        <input id="{{ form.link.name }}" type="text" name="{{ form.link.name }}" value="{% if form.link.value %}{{ form.link.value }}{% endif %}" class="four columns" />
+    </div>
+    <div class="row">
+        <label for="{{ form.lead.name }}" class="two columns">{{ form.lead.label_tag }}</label>
+        <input id="{{ form.lead.name }}" type="text" name="{{ form.lead.name }}" value="{% if form.lead.value %}{{ form.lead.value }}{% endif %}" class="four columns" />
+    </div>
+    <div class="row">
+        <label for="{{ form.start_date.name }}" class="two columns">{{ form.start_date.label_tag }}</label>
+        <input id="{{ form.start_date.name }}" type="date" name="{{ form.start_date.name }}" value="{% if form.start_date.value %}{{ form.start_date.value }}{% endif %}" class="four columns" />
+    </div>
+    <div class="row">
+        <label for="{{ form.is_rejected.name }}" class="two columns">{{ form.is_rejected.label_tag }}</label>
+        <input id="{{ form.is_rejected.name }}" type="checkbox" name="{{ form.is_rejected.name }}" {% if form.is_rejected.value %}checked{% endif %} class="four columns" />
+    </div>
+    <div class="row">
+        <button class="button-primary">Submit</button>
+        <button class="button">Reset</button>
+    </div>
+    </form>
+{% endblock %}

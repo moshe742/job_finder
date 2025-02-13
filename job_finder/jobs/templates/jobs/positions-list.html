@@ -1,19 +1,13 @@
-<!DOCTYPE html>
-{% load static %}
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Job search</title>
-    <link rel="stylesheet" href="{% static 'jobs/css/normalize.css' %}">
-    <link rel="stylesheet" href="{% static 'jobs/css/skeleton.css' %}">
-<!--    <link rel="stylesheet" href="{% static 'jobs/css/style.css' %}">-->
-</head>
-<body>
-<h1>my job search</h1>
-<main class="container">
+{% extends 'common/base.html' %}
+{% block title %}
+<title>Job search</title>
+{% endblock %}
+{% block content %}
+    <h1>Positions</h1>
+    <a class="button button-primary" href="{% url 'add-position' %}">Add a position</a>
     {% for position in positions %}
     <div class="row">
-        <div class="two columns">{{ position.start_date | date:'d-m-Y' }}</div>
+        <div class="two columns"><a href="{% url 'position-detail' position.id %}">{{ position.start_date | date:'d-m-Y' }}</a></div>
         <div class="two columns">{{ position.company_name }}</div>
         <div class="two columns">{% if position.link %}<a href="{{ position.link }}">{{ position.role }}</a>{% else %}{{ position.role }}{% endif %}</div>
         <div class="six columns">
@@ -24,5 +18,4 @@
     </div>
     {% endfor %}
 </main>
-</body>
-</html>
+{% endblock %}

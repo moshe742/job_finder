@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends 'common/base.html' %}
+{% block title %}<title>{{ position.role }}</title>{% endblock %}
+{% block content %}
+<h1>{% if position.link %}<a href="{{ position.link }}">{{ position.role }}</a>{% else %}{{ position.role }}{% endif %} at {{ position.company_name }}</h1>
+<main>
+<div class="row">
+    <a class="button button-primary" href="{% url 'add-note' position.id %}">add note</a>
+</div>
+<div class="row">
+    {% for note in position.notes.all %}
+    <p class="u-full-width">{{ note.happened_at | date:'d-m-Y' }}- {{ note.description }}</p>
+    {% endfor %}
+</div>
+</main>
+{% endblock %}
