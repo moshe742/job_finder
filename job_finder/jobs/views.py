@@ -29,7 +29,7 @@ class PositionCreateView(View):
         form = PositionForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('position_list')
+            return redirect('position-list')
         else:
             return render(request, 'jobs/position-form.html', context={'form': form})
 
@@ -45,7 +45,7 @@ class PositionUpdateView(View):
         form = PositionForm(request.POST, instance=position)
         if form.is_valid():
             form.save()
-            return redirect('position_list')
+            return redirect('position-list')
         else:
             return render(request, 'jobs/position-form.html', context={'form': form, 'is_edit': True})
 
