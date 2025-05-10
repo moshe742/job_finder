@@ -62,3 +62,10 @@ class NoteCreateView(View):
             return redirect('position-detail', position_id=position_id)
         else:
             return render(request, 'jobs/note-form.html', context={'form': form})
+
+
+class CompanyListView(View):
+    def get(self, request):
+        companies = Position.objects.values('company_name').all()
+        return render(request, 'jobs/companies-list.html',
+                      context={'companies': companies})

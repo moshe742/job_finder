@@ -1,0 +1,14 @@
+{% extends 'common/base.html' %}
+{% block title %}
+<title>Job search</title>
+{% endblock %}
+{% block content %}
+    <h1>Companies</h1>
+    <a class="button button-primary" href="{% url 'add-position' %}">Add a position</a>
+    {% for company in companies %}
+    <div class="row">
+        <div class="twelve columns">{{ company.company_name }}</div>
+    </div>
+    {% endfor %}
+</main>
+{% endblock %}

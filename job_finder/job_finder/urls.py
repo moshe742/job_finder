@@ -24,5 +24,6 @@ urlpatterns = [
     path('position/<position_id>/edit', views.PositionUpdateView.as_view(), name='position-update'),
     path('position/<position_id>', views.PositionDetailView.as_view(), name='position-detail'),
     path('position-add', views.PositionCreateView.as_view(), name='add-position'),
-    path('position/', views.PositionListView.as_view(), name='position_list')
+    path('position/', views.PositionListView.as_view(), name='position-list'),
+    path('company/', views.CompanyListView.as_view(), name='company-list'),
 ]
