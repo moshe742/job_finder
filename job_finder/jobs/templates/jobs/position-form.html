@@ -21,7 +21,7 @@
         <input id="{{ form.lead.name }}" type="text" name="{{ form.lead.name }}" value="{% if form.lead.value %}{{ form.lead.value }}{% endif %}" class="four columns" />
     </div>
     <div class="row">
-        <label for="{{ form.info }}" class="two columns">{{ form.info.label_tag }}</label>
+        <label for="{{ form.info.name }}" class="two columns">{{ form.info.label_tag }}</label>
         <input id="{{ form.info.name }}" type="textarea" name="{{ form.info.name }}" value="{% if form.info.value %}{{ form.info.value }}{% endif %}" class="four columns" />
     </div>
     <div class="row">
