@@ -8,6 +8,7 @@ class Position(models.Model):
     role = models.CharField(max_length=200)
     link = models.URLField(blank=True, null=True)
     lead = models.CharField(max_length=200)
+    info = models.TextField(blank=True, null=True)
     start_date = models.DateField()
     is_rejected = models.BooleanField(default=False)
 
