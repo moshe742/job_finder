@@ -16,8 +16,9 @@ class PositionListView(View):
 class PositionDetailView(View):
     def get(self, request, position_id):
         position = Position.objects.get(pk=position_id)
+        info = position.info.replace('\n', '</p><p>')
         return render(request, 'jobs/position.html',
-                      context={'position': position})
+                      context={'position': position, 'info': info})
 
 
 class PositionCreateView(View):

@@ -12,5 +12,10 @@
     <p class="u-full-width">{{ note.happened_at | date:'d-m-Y' }}- {{ note.description }}</p>
     {% endfor %}
 </div>
+<div class="row">
+    <p class="12 columns">
+        {{ info|safe }}
+    </p>
+</div>
 </main>
 {% endblock %}

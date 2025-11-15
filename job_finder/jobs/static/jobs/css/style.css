@@ -1,3 +1,4 @@
-body {
-    color: red;
+textarea {
+    height: 200px;
+    width: max-content;
 }
